@@ -1,0 +1,42 @@
+# Generic ignores
+*.log
+*.db
+*.pyc
+._*
+__pycache__
+
+# Directory (contents) ignores
+config/.cloud
+config/.storage 
+config/deps
+
+# Specific file ignores
+config/www/tmp
+# config/.uuid
+# config/ip_bans.yaml
+# config/known_devices.yaml
+# config/options.xml
+# config/OZW_Log.txt
+# config/plex.conf
+# config/pyozw.sqlite
+config/secrets.yaml
+config/entities/media_players/*
+# config/zwcfg_*
+# config/zwscene.xml
+# test.rest
+# config/.google_maps_location_sharing*
+workspace.code-workspace
+
+# ESPHome ignores
+config/esphome/secrets.yaml
+config/esphome/**/
+config/esphome/*
+
+# Custom component I don't want to track here
+# config/custom_components/cookiecutter_homeassistant_custom_component_instance
+
+# OS files
+.DS_Store
+
+# Virtual environement
+# venv
