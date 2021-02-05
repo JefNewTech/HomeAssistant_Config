@@ -6,6 +6,10 @@ default_config:
 tts:
   - platform: google_translate
 
+homeassistant:
+  # Load packages
+  packages: !include_dir_named integrations
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
