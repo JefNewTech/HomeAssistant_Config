@@ -1,0 +1,35 @@
+# rsync rules file
+#
+# EN: To be use with a command like:
+# FR: A utiliser avec des commandes du type
+# rsync -rlptzv --filter=._PATH_TO_THIS-FILE/.rsync-filter --progress --delete SOURCE DESTINATION
+#
+# EN: Warning: be sure to have latest version of rsync. On MacOS the rsync installed
+# is an old one with inconsitent behaviour with this type of rules file.
+# FR: Attention. Assurez vous d'installer la dernière version de rsync. La version installée
+# avec MacOS est une ancienne version qui à un comportement incohérent avec ce type de fichier de règles.
+#
+- .git
+- .vscode
+- .DS_Store
+- .gitignore
+-/ __pycache__/***
++/ automations/***
++/ blueprints/***
++/ custom_components/***
++/ customizations/***
++/ entities/***
++/ esphome/
++/ esphome/*.yaml
++/ integrations/***
++/ popup/***
++/ scripts/***
++/ themes/***
++/ www/***
++/ configuration.yaml
++/ automations.yaml
++/ scenes.yaml
++/ secrets.yaml
++/ button_card_templates.yaml
++/ .HA_VERSION
+- *
