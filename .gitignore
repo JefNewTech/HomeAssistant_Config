@@ -40,3 +40,4 @@ config/esphome/*
 
 # Virtual environement
 # venv
+config/home-assistant_v2.db.corrupt.2021-02-05T14:28:22.749491+00:00
