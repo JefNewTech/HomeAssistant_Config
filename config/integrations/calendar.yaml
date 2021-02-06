@@ -1,0 +1,10 @@
+---
+calendar:
+  - platform: caldav
+    username: !secret icloud_username
+    password: !secret icloud_app_specific_password
+    url: !secret icloud_url
+    calendars:
+      - "Famille"
+      - "école"
+      - "Ville de Tournai"
