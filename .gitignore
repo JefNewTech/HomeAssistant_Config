@@ -12,19 +12,10 @@ config/deps
 
 # Specific file ignores
 config/www/tmp
-# config/.uuid
-# config/ip_bans.yaml
-# config/known_devices.yaml
-# config/options.xml
-# config/OZW_Log.txt
-# config/plex.conf
-# config/pyozw.sqlite
+config/image
 config/secrets.yaml
 config/entities/media_players/*
-# config/zwcfg_*
-# config/zwscene.xml
-# test.rest
-# config/.google_maps_location_sharing*
+
 workspace.code-workspace
 
 # ESPHome ignores
@@ -33,7 +24,7 @@ config/esphome/**/
 config/esphome/*
 
 # Custom component I don't want to track here
-# config/custom_components/cookiecutter_homeassistant_custom_component_instance
+config/custom_components/
 
 # OS files
 .DS_Store

@@ -1,1 +1,23 @@
-[]
+- id: '1612730169588'
+  alias: Allumer la lampe sur pied au couché du soleil
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 5b61cb51b3d0d46ebb60dfdd5d5d104f
+    entity_id: light.lampe_sur_pied
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1612730343635'
+  alias: Zone Notification
+  description: ''
+  use_blueprint:
+    path: homeassistant/notify_leaving_zone.yaml
+    input:
+      person_entity: person.legrain_magalie
+      zone_entity: zone.ecole_de_warchin
+      notify_device: 9a67cba6573c0da84135427db26c7f3c
