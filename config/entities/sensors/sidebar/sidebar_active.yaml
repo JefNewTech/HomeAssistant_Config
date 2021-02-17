@@ -1,0 +1,32 @@
+---
+platform: template
+sensors:
+  sidebar_active:
+    value_template: >
+      {% set lights = [states.light.lampe_de_chevet, states.light.lampe_de_chevet_2, states.light.lampe_sur_pied, states.light.lampe_tv, 
+            states.light.livingcolors, states.light.plafonnier, states.light.plafonnier_2, states.light.plafonnier_3, states.switch.shelly1_8caab5061c39] %}          
+      {% set lights_on = lights | selectattr('state','eq','on') | list %}
+      {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
+      {% set switches = [states.switch.computer_kaoru, states.switch.computer_papa, states.switch.tv_samsung, 
+      states.switch.playstation_4] %}
+      {% set switches_on = switches | selectattr('state','eq','on') | list %} 
+      {% set switches_name = switches | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
+      {% if (lights_on | length == 0) and (switches_on | length > 1) %} 
+      {{ switches_name | regex_replace(',([^,]*)$',' et\\1') }} sont allumés
+      {% elif (lights_on | length == 0) and (switches_on | length == 1) %} 
+      {{ switches_name | regex_replace(',([^,]*)$',' et\\1') }} est allumé
+      {% elif (lights_on | length == 1) and (switches_on | length == 1) %}
+      {{ lights_name }} et {{switches_name }} sont allumés
+      {% elif (lights_on | length == 1) and (switches_on | length > 1) %}
+      {{ lights_name }}, {{ switches_name | regex_replace(',([^,]*)$',' et\\1') }} sont allumées
+      {% elif (lights_on | length > 1) and (switches_on | length == 1) %}
+      {{ lights_on | length }} lampes et {{ switches_name }} sont allumés
+      {% elif (lights_on | length > 1) and (switches_on | length > 1) %}
+      {{ lights_on | length }} lampes, {{ switches_name | regex_replace(',([^,]*)$',' et\\1') }} sont allumés
+      {% elif (lights_on | length == 1) and (switches_on | length == 0) %}
+      {{ lights_name }} est allumée
+      {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
+      {{ lights_on | length}} lampes allumées
+      {% else %} 
+      <font color='#6a7377'>Tout est éteint</font> 
+      {% endif %}

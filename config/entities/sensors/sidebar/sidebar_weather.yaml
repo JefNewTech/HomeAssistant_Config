@@ -1,0 +1,33 @@
+platform: template
+sensors: 
+  sidebar_weather:
+    value_template: >
+      {% set temperature = state_attr('weather.camphin_en_pevele', 'temperature') %}
+      {% set precip = states('sensor.camphin_en_pevele_rain_chance') | round %}
+      {% set snow = states('sensor.camphin_en_pevele_snow_chance') | round %}
+      {% set weather_state = states('weather.camphin_en_pevele') 
+        | replace('rainy', 'Pluvieux')
+        | replace('partlycloudy', 'Partiellement nuageux')
+        | replace('cloudy', 'Nuageux')
+        | replace('clear-night', 'Nuit claire')
+        | replace('fog', 'Brumeux') 
+        | replace('hail', 'Grêleux')
+        | replace('lightning-rainy', 'Orageux')
+        | replace('lightning', 'Orageux') 
+        | replace('pourring', 'Pluie intense')
+        | replace('snowy-rainy', 'Neigeux')
+        | replace('snowy', 'Neigeux')
+        | replace('sunny', 'Ensoleillé')
+        | replace('windy-variant', 'Variblement venteux')
+        | replace('windy', 'Venteux')
+        | replace('exceptional', 'Exceptionel') %}
+
+      {% if not state_attr('weather.camphin_en_pevele', 'temperature') == 'unknow' %}
+        {% if temperature | float <= 0.0 %}
+          {{ weather_state }}, il fait {{ temperature }}° avec {{ snow }}% de risque de neige {{'\u2744\uFE0F'}}
+        {% elif temperature | float > 0.0 %} 
+          {{ weather_state }}, il fait {{ temperature }}° avec {{ precip }}% de risque de pluie {{ '\u2614\uFE0F' if precip > 30 }}
+        {% endif %}
+      {% else %}
+        Pas d'information métérologique...
+      {% endif %}

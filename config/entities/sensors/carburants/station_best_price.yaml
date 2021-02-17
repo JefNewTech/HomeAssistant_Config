@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  diesel_best_price:
+    entity_id: sensor.station_esso_tou_price, sensor.station_power_rch_price, sensor.station_shell_froy_price
+    value_template: >
+      {% set station_esso_tou_price =  states.sensor.station_esso_tou_price.state  %}
+      {% set station_power_rch_price =  states.sensor.station_power_rch_price.state  %}
+      {% set station_shell_froy_price =  states.sensor.station_shell_froy_price.state  %}
+
+      {% if (station_esso_tou_price <= station_power_rch_price) and (station_esso_tou_price <= station_shell_froy_price) %}
+          Esso Tournai
+      {% elif (station_shell_froy_price <= station_esso_tou_price)
+            and (station_shell_froy_price <= station_power_rch_price) %}
+          Shell Froyenne
+      {% else %}
+          Power Rch
+      {% endif %}

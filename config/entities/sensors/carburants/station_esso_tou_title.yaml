@@ -1,0 +1,5 @@
+platform: scrape
+resource: https://carbu.com/belgique/index.php/station/esso-express/tournai/7500/400
+select: ".title"
+index: 2
+name: station_esso_tou_title

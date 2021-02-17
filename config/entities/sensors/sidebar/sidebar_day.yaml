@@ -1,0 +1,7 @@
+platform: template
+sensors: 
+  sidebar_day:
+    icon_template: mdi:calendar
+    value_template: >
+      {% set days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
+      {{ days[now().weekday()] }}

@@ -1,0 +1,5 @@
+platform: scrape
+resource: https://carbu.com/belgique/index.php/station/power/ramegnies-chin/7520/19513
+select: ".price"
+index: 2
+name: station_power_rch_price

@@ -1,0 +1,8 @@
+platform: template
+sensors:
+  sidebar_date:
+    icon_template: mdi:calendar
+    value_template: >
+      {% set months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 
+      'Julliet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'] %}
+      {{ strptime(states('sensor.date'), '%Y-%m-%d').day }} {{ months[now().month-1] }}

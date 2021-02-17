@@ -1,0 +1,5 @@
+platform: scrape
+resource: https://carbu.com/belgique/index.php/station/shell-express/froyennes/7503/2122
+select: ".price"
+index: 2
+name: station_shell_froy_price
