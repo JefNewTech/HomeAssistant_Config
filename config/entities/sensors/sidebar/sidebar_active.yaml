@@ -28,5 +28,5 @@ sensors:
       {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
       {{ lights_on | length}} lampes allumées
       {% else %} 
-      <font color='#6a7377'>Tout est éteint</font> 
+      Tout est éteint
       {% endif %}
