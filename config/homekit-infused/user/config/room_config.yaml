@@ -1,0 +1,46 @@
+# Use this file to have the auto-fill card know which rooms you want to show on the lights and devices view.
+# You only have 2 options, show room on the light view and show room on the devices view. Put it under the floor you want.
+# If you have a basement, use floor 0 as the basement floor!
+
+# The names used here MUST be exactly the same as what you've put in customize.yaml
+# E.g.
+#
+# light.living_room:
+#   friendly_name: Living Room Light
+#   room: woonkamer
+#
+# The room names MUST be a list (see example below) and MUST be lowercase!
+
+# Which rooms to show on lights view?
+lights_rooms_floor_0:
+  # - berging
+lights_rooms_floor_1:
+  - Buanderie
+  - Cuisine
+  - Hall d'entrée
+  - Salle à manger
+  - Salon
+  - Toilette
+lights_rooms_floor_2:
+  - Hall de nuit
+  - Salle de bain
+  - Chambre d'Adaline
+  - Bureau
+  - Chambre
+lights_rooms_floor_3:
+lights_rooms_floor_4:
+
+# Which rooms to show on devices view?
+devices_rooms_floor_0:
+devices_rooms_floor_1:
+  - Hall d'entrée
+  - Salle à manger
+  - Salon
+devices_rooms_floor_2:
+  - Hall de nuit
+  - Salle de bain
+  - Chambre d'Adaline
+  - Bureau
+  - Chambre
+devices_rooms_floor_3:
+devices_rooms_floor_4:

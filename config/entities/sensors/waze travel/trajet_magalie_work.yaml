@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Trajet_Magalie_travail
+origin: person.legrain_magalie
+destination: zone.ecole_de_warchin
+region: EU

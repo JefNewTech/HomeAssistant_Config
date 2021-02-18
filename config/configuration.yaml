@@ -10,6 +10,10 @@ tts:
 homeassistant:
   # Load packages
   packages: !include_dir_named integrations
+  customize: !include customize.yaml
+
+lovelace:
+  mode: storage
 
 group: !include groups.yaml
 automation: !include automations.yaml

@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Trajet_Jean_travail
+origin: person.coquerelle_jean_francois
+destination: zone.atelier_de_kain
+region: EU
