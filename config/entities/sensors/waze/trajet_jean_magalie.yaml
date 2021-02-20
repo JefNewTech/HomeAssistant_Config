@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: trajet_jean_Magalie
+origin: person.coquerelle_jean_francois
+destination: person.legrain_magalie
+region: EU

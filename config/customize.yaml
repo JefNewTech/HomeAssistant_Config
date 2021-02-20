@@ -62,10 +62,10 @@ light.lampe_sur_pied:
   icon: mdi:floor-lamp
   friendly_name: Lampe sur pied
   room: Salon
-  type: light-color-temp
+  type: light-rgb
 
 light.lampe_de_chevet:
   icon: mdi:floor
   friendly_name: Lampe de chevet
   room: Chambre
-  type: light-color-temp
+  type: light-rgb

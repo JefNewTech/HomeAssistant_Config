@@ -93,10 +93,27 @@
             - '../../../base/templates/button/button-badge.yaml'
             - name: Energy
               label: Overview
-              icon: mdi:chart-line
+              icon: mdi:flash
               navigation_path: /homekit-infused/energy
               notification: "[[[ if (states['sensor.current_power_usage'].state == 0) return '&nbsp'; else return `${states['sensor.current_power_usage'].state}`; ]]]"
               background_color: "[[[ if (states['sensor.current_power_usage'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+          - !include
+            - '../../../base/templates/button/button-badge.yaml'
+            - name: Gas
+              label: Overview
+              icon: mdi:gas-cylinder
+              navigation_path: /homekit-infused/energy
+              notification: "[[[ if (states['sensor.current_gas_usage'].state == 0) return '&nbsp'; else return `${states['sensor.current_gas_usage'].state}`; ]]]"
+              background_color: "[[[ if (states['sensor.current_gas_usage'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+          - !include
+            - '../../../base/templates/button/button-badge.yaml'
+            - name: Water
+              label: Overview
+              icon: mdi:water-pump
+              navigation_path: /homekit-infused/energy
+              notification: "[[[ if (states['sensor.current_water_usage'].state == 0) return '&nbsp'; else return `${states['sensor.current_water_usage'].state}`; ]]]"
+              background_color: "[[[ if (states['sensor.current_water_usage'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+       
           # - !include
           #   - '../../../base/templates/button/button-badge.yaml'
           #   - name: Scenes
