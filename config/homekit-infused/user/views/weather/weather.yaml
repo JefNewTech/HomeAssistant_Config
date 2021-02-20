@@ -1,0 +1,93 @@
+# - type: custom:mod-card
+#   style: |
+#     ha-card {
+#       margin-left: 7px;
+#       margin-right: 7px;
+#     }
+#   card:
+    # type: vertical-stack
+    # cards:
+      # - !include
+      #   - '../../../base/templates/other/title-text.yaml'
+      #   - name: Air Quality
+      # - type: custom:air-visual-card
+      #   style: |
+      #     ha-card {
+      #       border-radius: var(--border-radius);
+      #       box-shadow: var(--box-shadow);
+      #       overflow: hidden;
+      #     }
+      #   air_pollution_level: sensor.u_s_air_pollution_level
+      #   air_quality_index: sensor.u_s_air_quality_index
+      #   main_pollutant: sensor.u_s_main_pollutant
+      #   temp: weather.dark_sky
+      #   city: Eindhoven
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: Météo
+      - type: "custom:meteofrance-weather-card"
+        name: Templeuve
+        style: |
+          ha-card {
+            font-size: 12px;
+            font-family:  var(--font-family);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            opacity: 0.8;
+          }
+        entity: weather.camphin_en_pevele
+        cloudCoverEntity: sensor.camphin_en_pevele_cloud_cover
+        rainChanceEntity: sensor.camphin_en_pevele_rain_chance
+        freezeChanceEntity: sensor.camphin_en_pevele_freeze_chance
+        snowChanceEntity: sensor.camphin_en_pevele_snow_chance
+        uvEntity: sensor.camphin_en_pevele_uv
+        rainForecastEntity: sensor.camphin_en_pevele_next_rain
+        alertEntity: sensor.59_weather_alert
+        number_of_forecasts: "5"
+        # Les switches pour afficher ou non les différentes zones.
+        current: true
+        details: true
+        one_hour_forecast: true
+        alert_forecast: true
+        forecast: true
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: Windy
+      - type: iframe
+        style: |
+          ha-card {
+            position: relative !important;
+            overflow: hidden !important;
+            border-radius: var(--border-radius) !important;
+            box-shadow: var(--box-shadow);
+            -webkit-border-radius: var(--border-radius) !important;
+            border-radius-x: var(--border-radius) !important;;
+          }
+          iframe {
+            border-radius: var(--border-radius) !important;
+            -webkit-border-radius: var(--border-radius);
+            border-radius-x: var(--border-radius) !important;
+            overflow: hidden !important;
+          }
+        aspect_ratio: 125%
+        url: https://embed.windy.com/embed2.html?lat=50.641182&lon=3.293427&detailLat=50.641182&detailLon=3.293427&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=°C&radarRange=-1" frameborder="0"

@@ -37,7 +37,7 @@
               image_path: /local/images/JF.png
               navigation_path: person_1
               alignment: left
-              text_color: white
+              # text_color: red
               phone_battery_sensor: sensor.iphone_de_jean_francois_battery_state
               travel_time_to_home: sensor.trajet_jean
               travel_time_to_work: sensor.trajet_jean_travail
@@ -47,7 +47,7 @@
               image_path: /local/images/MAGGY.png
               navigation_path: person_2
               alignment: right
-              text_color: white
+              # text_color: red
               phone_battery_sensor: sensor.iphone_de_magalie_battery_state
               travel_time_to_home: sensor.trajet_magalie
               travel_time_to_work: sensor.trajet_magalie_travail

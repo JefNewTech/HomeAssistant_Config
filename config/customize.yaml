@@ -59,7 +59,13 @@
 # Any entity that does not have both room and type will not be found by HKI's autofill, but can ofcourse still be exposed manually by using cards in the user_content of the view.
 
 light.lampe_sur_pied:
-  icon: mdi:lamp
+  icon: mdi:floor-lamp
   friendly_name: Lampe sur pied
   room: Salon
+  type: light-color-temp
+
+light.lampe_de_chevet:
+  icon: mdi:floor
+  friendly_name: Lampe de chevet
+  room: Chambre
   type: light-color-temp
