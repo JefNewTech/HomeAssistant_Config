@@ -1,0 +1,19 @@
+platform: afvalbeheer
+wastecollector: RecycleApp            
+resources:                       
+  - restafval
+  - papier
+  - pmd
+postcode: 7520  
+streetname: Rue de Tournai              
+streetnumber: 1              
+cityname: Templeuve
+upcomingsensor: 1
+dateformat: '%d-%m-%Y'           
+dateonly: 0                     
+dateobject: 0                   
+# name: ''                        
+nameprefix: 1                    
+builtinicons: 0                  
+disableicons: 0
+      

@@ -75,7 +75,7 @@
           aspect_ratio: 4x5
           default_zoom: 15
           entities:
-            - person.jimmy   
+            - person.legrain_magalie  
 
 - type: conditional
   conditions:
@@ -101,8 +101,7 @@
               box-shadow: var(--box-shadow);
             }
           entities:
-            - calendar.stephanievanduuren_gmail_com
-            - calendar.family  
+            - calendar.famille 
 
 - type: conditional
   conditions:
