@@ -60,3 +60,69 @@
     - '../base/templates/header/notification-template.yaml'
     - icon: mdi:home-assistant
       name: Il y a une mise à jour pour Home Assistant!!
+
+# Wedding Day (number of years married)
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_notre_mariage
+      state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
+  card:
+    !include
+    - '../base/templates/header/notification-template.yaml'
+    - icon: mdi:ring
+      name: "[[[ return `Aujourd'hui, nous sommes mariés depuis ${states['sensor.anniversary_notre_mariage'].attributes.years} ans!` ]]]"
+      spin: true
+# Anniversary (number of years since we are together)
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_nous_deux
+      state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
+  card:
+    !include
+    - '../base/templates/header/notification-template.yaml'
+    - icon: mdi:ring
+      name: "[[[ return `Aujourd'hui, nous sommes ensemble depuis ${states['sensor.anniversary_nous_deux'].attributes.years} ans!` ]]]"
+      spin: true
+# Adaline Coquerelle
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_anniversaire_dadaline
+      state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
+  card:
+    !include
+    - '../base/templates/header/notification-template.yaml'
+    - entity: input_boolean.notification_birthday
+      icon: mdi:gift
+      name: "[[[ return `Adaline à ${states['sensor.anniversary_anniversaire_dadaline'].attributes.years} aujourd'hui!` ]]]"
+# Magalie Legrain
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_anniversaire_de_magalie
+      state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
+  card:
+    !include
+    - '../base/templates/header/notification-template.yaml'
+    - entity: input_boolean.notification_birthday
+      icon: mdi:gift
+      name: "[[[ return `Magalie à ${states['sensor.anniversary_anniversaire_de_magalie'].attributes.years} aujourd'hui!` ]]]"
+# Jean-François Coquerelle
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_anniversaire_de_jean
+      state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
+  card:
+    !include
+    - '../base/templates/header/notification-template.yaml'
+    - entity: input_boolean.notification_birthday
+      icon: mdi:gift
+      name: "[[[ return `Jean-François à ${states['sensor.anniversary_anniversaire_de_jean'].attributes.years} aujourd'hui!` ]]]"

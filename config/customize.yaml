@@ -69,3 +69,15 @@ light.lampe_de_chevet:
   friendly_name: Lampe de chevet
   room: Chambre
   type: light-rgb
+
+sensor.recycleapp_pmd:
+  friendly_name: PMC
+  entity_picture: /local/images/afvalbeheer/afval_pmd_small.png
+
+sensor.recycleapp_papier:
+  friendly_name: Papier & Carton
+  entity_picture: /local/images/afvalbeheer/afval_papier_small.png
+
+sensor.recycleapp_restafval:
+  friendly_name: Ordures ménagères
+  entity_picture: /local/images/afvalbeheer/afval_rest_small.png

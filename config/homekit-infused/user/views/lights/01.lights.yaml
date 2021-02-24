@@ -4,73 +4,110 @@
     - entity: input_select.floor_selector
       state: "2"
   card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
+      type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 7px;
+          margin-right: 7px;
+        }
+      card:
+        type: vertical-stack
         cards:
-          - !include
-            - '../../../base/templates/other/title-text.yaml'
-            - name: Hall de nuit
-          - !include
-            - '../../../base/templates/other/title-text.yaml'
-            - name: "[[[ return `${states['sensor.detecteur_hall_de_nuit_temperature'].state} °C`; ]]]"
-              justify_self: end
-      - type: horizontal-stack
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: Hall de nuit
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: "[[[ return `${states['sensor.detecteur_hall_de_nuit_temperature'].state} °C`; ]]]"
+                  justify_self: end
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: light.plafonnier_2
+                  label: !include ../../../base/includes/brightness-label.yaml
+                  grid: light-devices-grid
+                  template: '../popup-cards/light-switch.yaml'
+                  lock: true
+              - !include ../../../base/includes/empty-button.yaml
+              - !include ../../../base/includes/empty-button.yaml
+
+- type: conditional
+  conditions:
+    - entity: input_select.floor_selector
+      state: "2"
+  card:
+      type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 7px;
+          margin-right: 7px;
+        }
+      card:
+        type: vertical-stack
         cards:
-          - !include
-            - '../../../base/templates/button/button.yaml'
-            - entity: light.plafonnier
-              label: !include ../../../base/includes/brightness-label.yaml
-              grid: light-devices-grid
-              template: '../popup-cards/light-switch.yaml'
-              lock: true
-          - !include ../../../base/includes/empty-button.yaml
-          - !include ../../../base/includes/empty-button.yaml
-      - type: horizontal-stack
-        cards:
-          - !include
-            - '../../../base/templates/other/title-text.yaml'
-            - name: Chambre
-      - type: horizontal-stack
-        cards:
-          - !include
-            - '../../../base/templates/button/button.yaml'
-            - entity: light.lampe_de_chevet
-              label: !include ../../../base/includes/brightness-label.yaml
-              grid: light-devices-grid
-              template: '../popup-cards/light-switch.yaml'
-              lock: true
-          - !include
-            - '../../../base/templates/button/button.yaml'
-            - entity: light.plafonnier_2
-              label: !include ../../../base/includes/brightness-label.yaml
-              grid: light-devices-grid
-              template: '../popup-cards/light-switch.yaml'
-              lock: true
-          - !include ../../../base/includes/empty-button.yaml
-      - type: horizontal-stack
-        cards:
-          - !include
-            - '../../../base/templates/other/title-text.yaml'
-            - name: Chambre d'Adaline
-          - !include
-            - '../../../base/templates/other/title-text.yaml'
-            - name: "[[[ return `${states['sensor.indoor_temperature'].state} °C`; ]]]"
-              justify_self: end    
-      - type: horizontal-stack
-        cards:
-          - !include
-            - '../../../base/templates/button/button.yaml'
-            - entity: light.lampe_de_chevet_2
-              label: !include ../../../base/includes/brightness-label.yaml
-              grid: light-devices-grid
-              template: '../popup-cards/light-switch.yaml'
-              lock: true
-          - !include
-            - '../../../base/templates/button/button.yaml'
-            - entity: light.plafonnier_3
-              label: !include ../../../base/includes/brightness-label.yaml
-              grid: light-devices-grid
-              template: '../popup-cards/light-switch.yaml'
-              lock: true
-          - !include ../../../base/includes/empty-button.yaml
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: Chambre
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: light.lampe_de_chevet
+                  label: !include ../../../base/includes/brightness-label.yaml
+                  grid: light-devices-grid
+                  template: '../popup-cards/light-switch.yaml'
+                  lock: true
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: light.plafonnier_2
+                  label: !include ../../../base/includes/brightness-label.yaml
+                  grid: light-devices-grid
+                  template: '../popup-cards/light-switch.yaml'
+                  lock: true
+              - !include ../../../base/includes/empty-button.yaml
+
+- type: conditional
+  conditions:
+    - entity: input_select.floor_selector
+      state: "2"
+  card:
+      type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 7px;
+          margin-right: 7px;
+        }
+      card:
+        type: vertical-stack
+        cards:          
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: Chambre d'Adaline
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: "[[[ return `${states['sensor.indoor_temperature'].state} °C`; ]]]"
+                  justify_self: end    
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: light.lampe_de_chevet_2
+                  label: !include ../../../base/includes/brightness-label.yaml
+                  grid: light-devices-grid
+                  template: '../popup-cards/light-switch.yaml'
+                  lock: true
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: light.plafonnier_3
+                  label: !include ../../../base/includes/brightness-label.yaml
+                  grid: light-devices-grid
+                  template: '../popup-cards/light-switch.yaml'
+                  lock: true
+              - !include ../../../base/includes/empty-button.yaml

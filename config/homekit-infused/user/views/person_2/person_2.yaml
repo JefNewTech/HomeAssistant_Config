@@ -42,7 +42,7 @@
               to: "Home"
             - entity: sensor.trajet_magalie_travail
               to: "Work"
-            - entity: sensor.trajet_jean_Magalie
+            - entity: sensor.trajet_jean_magalie
               to: "Jean-François"
 
 - type: conditional
@@ -102,6 +102,7 @@
             }
           entities:
             - calendar.famille 
+            - calendar.ecole
 
 - type: conditional
   conditions:

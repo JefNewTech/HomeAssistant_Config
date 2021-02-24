@@ -39,9 +39,8 @@
               to: "Home"
             - entity: sensor.trajet_jean_travail
               to: "Work"
-            - entity: sensor.trajet_jean_Magalie
+            - entity: sensor.trajet_jean_magalie
               to: "Magalie"
-
               
 - type: conditional
   conditions:
@@ -100,6 +99,7 @@
             }
           entities:
             - calendar.famille
+            - calendar.ville_de_tournai
 
 - type: conditional
   conditions:

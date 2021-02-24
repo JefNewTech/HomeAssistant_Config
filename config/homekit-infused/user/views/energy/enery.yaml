@@ -9,13 +9,13 @@
     cards:
       - !include
         - '../../../base/templates/other/title-text.yaml'
-        - name: 'Total Usage Electricity'
+        - name: "Consommation totale d'électricité"
       - type: horizontal-stack
         cards:
           - !include
             - '../../../base/templates/other/mini-graph.yaml'
             - entity: sensor.energy_usage_today
-              name: Vandaag
+              name: Aujourd'hui
               line_color: '"#0062ff"'
               graph_type: line
               decimals: 3
@@ -23,7 +23,7 @@
           - !include
             - '../../../base/templates/other/mini-graph.yaml'
             - entity: sensor.energy_cost_today
-              name: Deze Maand
+              name: Prix
               line_color: '"#ddff00"'
               graph_type: line
               decimals: 3
@@ -40,38 +40,7 @@
     cards:
       - !include
         - '../../../base/templates/other/title-text.yaml'
-        - name: Total Usage Gas
-      - type: horizontal-stack
-        cards:
-          - !include
-            - '../../../base/templates/other/mini-graph.yaml'
-            - entity: sensor.gas_usage_today
-              name: Today
-              line_color: '"#9000ff"'
-              graph_type: line
-              decimals: 3
-              font_size: 65
-          - !include
-            - '../../../base/templates/other/mini-graph.yaml'
-            - entity: sensor.gas_cost_today
-              name: This Month
-              line_color: '"#ff7300"'
-              graph_type: line
-              decimals: 3
-              font_size: 65
-
-- type: custom:mod-card
-  style: |
-    ha-card {
-      margin-left: 7px;
-      margin-right: 7px;
-    }
-  card:
-    type: vertical-stack
-    cards:
-      - !include
-        - '../../../base/templates/other/title-text.yaml'
-        - name: Current Meter Readings
+        - name: Lectures actuelles des compteurs
       - type: horizontal-stack
         cards:
           - !include
@@ -92,15 +61,65 @@
               show_extrema: true
               decimals: 3
               font_size: 65
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: "Consommation totale de gaz"
       - type: horizontal-stack
         cards:
           - !include
             - '../../../base/templates/other/mini-graph.yaml'
-            - entity: sensor.average_gas_usage
-              name: Gas
-              line_color: '"#ee00ff"'
+            - entity: sensor.gas_usage_today
+              name: Aujourd'hui
+              line_color: '"#9000ff"'
               graph_type: line
-              show_extrema: true
               decimals: 3
-              font_size: 65 
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.gas_cost_today
+              name: Prix
+              line_color: '"#ff7300"'
+              graph_type: line
+              decimals: 3
+              font_size: 65
 
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: "Consommation totale d'eau"
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.water_usage_today
+              name: Aujourd'hui
+              line_color: '"#9000ff"'
+              graph_type: line
+              decimals: 3
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.water_cost_today
+              name: Prix
+              line_color: '"#ff7300"'
+              graph_type: line
+              decimals: 3
+              font_size: 65

@@ -25,6 +25,8 @@
         hideHeader: true
         entities:
           - calendar.famille
+          - calendar.ecole
+          - calendar.ville_de_tournai
         showColors: true
       # - !include
       #   - '../../../base/templates/other/title-text.yaml'
