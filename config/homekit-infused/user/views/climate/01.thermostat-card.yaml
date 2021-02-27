@@ -13,4 +13,5 @@
       - !include
         - '../../../base/templates/auto-fill/auto-fill-thermostat-template.yaml'
         - lock: false
+        - entities: climate.thermostat
           columns: 3
