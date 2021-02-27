@@ -57,7 +57,7 @@
 # scene                              (use this for scenes)
 
 # Any entity that does not have both room and type will not be found by HKI's autofill, but can ofcourse still be exposed manually by using cards in the user_content of the view.
-
+# LIGHT
 light.lampe_sur_pied:
   icon: mdi:floor-lamp
   friendly_name: Lampe sur pied
@@ -70,6 +70,7 @@ light.lampe_de_chevet:
   room: Chambre
   type: light-rgb
 
+# WASTE
 sensor.recycleapp_pmd:
   friendly_name: PMC
   entity_picture: /local/images/afvalbeheer/afval_pmd_small.png
@@ -81,3 +82,61 @@ sensor.recycleapp_papier:
 sensor.recycleapp_restafval:
   friendly_name: Ordures ménagères
   entity_picture: /local/images/afvalbeheer/afval_rest_small.png
+
+# CLIMATE
+climate.thermostat: 
+  icon: mdi:thermostat
+  friendly_name: Boxx
+  type: thermostat
+  room: Salon
+
+# SENSORS
+## TEMPERATURE
+
+sensor.temperature:
+  friendly_name: Boxx
+  icon: mdi:thermometer
+  device_class: temperature
+  type: temperature
+  room: Salon
+
+sensor.indoor_temperature:
+  friendly_name: Chambre d'Adaline
+  icon: mdi:thermometer
+  device_class: temperature
+  type: temperature
+  room: chambre d'Adaline
+
+sensor.outdoor_temperature:
+  friendly_name: Extérieur
+  icon: mdi:thermometer
+  device_class: temperature
+  type: temperature
+  room: extérieur
+
+## Humidity
+sensor.humidity:
+  friendly_name: Extérieur
+  icon: mdi:water-percent
+  type: humidity
+  room: extérieur
+
+sensor.indoor_humidity:
+  friendly_name: Chambre d'Adaline
+  icon: mdi:water-percent
+  type: humidity
+  room: chambre d'Adaline
+
+## Air Pressure
+sensor.relative_pressure:
+  friendly_name: Extérieur
+  icon: mdi:gauge
+  # icon: mdi:water-percent
+  type: pressure
+  room: extérieur
+
+# Battery Sensors
+# sensor.ab_gang_muur_battery_level:
+#   friendly_name: Hue Hall
+#   device_class: battery
+#   unit_of_measurement: '%'
