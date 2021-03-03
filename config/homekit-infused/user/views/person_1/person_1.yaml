@@ -124,7 +124,7 @@
               border-radius: var(--border-radius);
               box-shadow: var(--box-shadow);
             }
-          image: /local/images/citroenc1.jpg
+          image: /local/images/Partner.png
 - type: conditional
   conditions:
     - entity: input_select.person_1
@@ -243,8 +243,8 @@
               opacity: 0.8;
             }
           entities:  
-            - entity: sensor.euro_95_e10_advies
-              name: Adviesprijs E10 (Euro 95) 
+            - entity: sensor.station_shell_froy_price
+              name: Diesel (B7) 
               icon: mdi:gas-station  
             - entity: sensor.car_wash
               name: Kan ik de auto wassen?
@@ -282,8 +282,8 @@
                 a {
                   color: var(--primary-text-color) !important;
                 }
-              name: ANWB Bellen
-              url: tel:+31882692222
+              name: Peugeot Assistance
+              url: tel:+3226276120
               icon: 'fal:phone'  
 
 - type: conditional

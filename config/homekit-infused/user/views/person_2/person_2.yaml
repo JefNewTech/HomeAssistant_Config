@@ -127,7 +127,7 @@
               border-radius: var(--border-radius);
               box-shadow: var(--box-shadow);
             }
-          image: /local/images/peugeot207.jpg
+          image: /local/images/Tucson.jpg
 
 - type: conditional
   conditions:
@@ -287,8 +287,8 @@
                 a {
                   color: var(--primary-text-color) !important;
                 }
-              name: ANWB Bellen
-              url: tel:+31882692222
+              name: Hyundai Assistance
+              url: tel:+3232536242
               icon: 'fal:phone'  
 
 - type: conditional
