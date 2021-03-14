@@ -6,15 +6,15 @@ sensor:
         value_template: 3.5.3
 
 # Time Date
-  - platform: time_date
-    display_options:
-      - time
-      - date
-      - date_time
-      - date_time_iso
-      - time_date
-      - time_utc
-      - beat
+  # - platform: time_date
+  #   display_options:
+  #     - time
+  #     - date
+  #     - date_time
+  #     - date_time_iso
+  #     - time_date
+  #     - time_utc
+  #     - beat
 
 # Template Sensors (device counting)
   - platform: template

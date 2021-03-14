@@ -22,6 +22,78 @@
       #   main_pollutant: sensor.u_s_main_pollutant
       #   temp: weather.dark_sky
       #   city: Eindhoven
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - !include
+                - '../../../base/templates/other/title-text.yaml'
+                - name: Ecowitt
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities: 
+                  - sensor.outdoor_temperature
+                line_color: '#e16366'
+                icon: 'mdi:tree'
+                line_width: 8
+                font_size: 75
+                unit: °C
+                name: Temp
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.humidity
+                line_color: '#4e93dd'
+                icon: 'water'
+                line_width: 8
+                font_size: 75
+                unit: '%'
+                name: Hum
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.wind_speed_2
+                line_color: '#9c54b3'
+                icon: 'windsock'
+                line_width: 8
+                font_size: 75
+                unit: Km/h
+                name: Vent
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.wind_gust_2
+                line_color: '#9c54b4'
+                icon: 'windsock'
+                line_width: 8
+                font_size: 75
+                unit: Km/h
+                name: Rafale
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: Lum
+                entities:
+                  - sensor.solar_radiation
+                  - entity: binary_sensor.night
+                    color: rgba(255,255,255,.25)
+                    y_axis: secondary
+                    aggregate_func: min
+                    show_state: true
+                    show_line: false
+                    show_points: false
+                state_map:
+                  - value: "off"
+                    label: "Day"
+                  - value: "on"
+                    label: "Night"
 
 - type: custom:mod-card
   style: |

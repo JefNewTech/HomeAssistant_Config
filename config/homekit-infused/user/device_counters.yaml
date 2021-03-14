@@ -28,7 +28,7 @@ all_motion_sensor_entities:
     # - binary_sensor.devant_motion
     # - binary_sensor.jardin_motion
     # - binary_sensor.meteo_motion
-    # - binary_sensor.detecteur_hall_de_nuit_motion
+    - binary_sensor.detecteur_hall_de_nuit_motion
 
 # All Detectors (smoke/gas/fire etc)
 all_detector_entities:

@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  total_gas_rect:
+    value_template: "{{ states('sensor.gas_meter') | float + 19.84 | float }}"
+    unit_of_measurement: "M3"

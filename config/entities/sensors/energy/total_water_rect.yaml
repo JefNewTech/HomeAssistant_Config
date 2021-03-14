@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  total_water_rect:
+    value_template: "{{ states('sensor.water_meter') | float + 55.712 | float }}"
+    unit_of_measurement: "M3"

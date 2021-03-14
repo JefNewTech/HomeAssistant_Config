@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  total_day_electricity_rect:
+    value_template: "{{ states('sensor.electricity_meter_feed_in_tariff_1') | float + 1666.49 | float }}"
+    unit_of_measurement: "kWh"

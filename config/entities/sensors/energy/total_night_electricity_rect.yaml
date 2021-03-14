@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  total_night_electricity_rect:
+    value_template: "{{ states('sensor.electricity_meter_feed_in_tariff_2') | float + 2034.17 | float }}"
+    unit_of_measurement: "kWh"
