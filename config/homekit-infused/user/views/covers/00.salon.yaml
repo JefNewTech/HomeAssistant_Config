@@ -1,0 +1,21 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: Rez de chaussée
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:vertical-slider-cover-card'
+            title: Store
+            entities:
+            - entity: cover.shellyswitch25_84cca8b13cb4
+              name: Salon
+            - entity: cover.shellyswitch25_84cca8b0cc83
+              name: Salle à manger

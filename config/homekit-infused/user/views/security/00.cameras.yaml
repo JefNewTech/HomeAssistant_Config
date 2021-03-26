@@ -28,3 +28,21 @@
           }
         aspect_ratio: 16x9
         entity: camera.devant
+      - type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: 16x9
+        entity: camera.jardin
+      - type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: 16x9
+        entity: camera.meteo

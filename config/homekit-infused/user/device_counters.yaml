@@ -24,10 +24,10 @@ all_door_sensor_entities:
 # Motion Sensors
 all_motion_sensor_entities:
   entities:
-    # - binary_sensor.carport_motion
-    # - binary_sensor.devant_motion
-    # - binary_sensor.jardin_motion
-    # - binary_sensor.meteo_motion
+    - binary_sensor.carport_motion
+    - binary_sensor.devant_motion
+    - binary_sensor.jardin_motion
+    - binary_sensor.meteo_motion
     - binary_sensor.detecteur_hall_de_nuit_motion
 
 # All Detectors (smoke/gas/fire etc)
@@ -58,6 +58,8 @@ all_device_switch_entities:
 # All Covers
 all_cover_entities:
   entities:
+    - cover.shellyswitch25_84cca8b13cb4
+    - cover.shellyswitch25_84cca8b0cc83
 
 # All Garage Doors
 all_garage_door_entities:

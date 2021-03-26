@@ -127,7 +127,7 @@
           .value {
             font-size: 20px !important;
           }
-        entity: sensor.disk_use_home
+        entity: sensor.disk_free_home
         attribute: diskSpace
         name: Total All Disks
         icon: mdi:harddisk
