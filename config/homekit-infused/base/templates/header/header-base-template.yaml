@@ -49,6 +49,13 @@ entities:
               ## {{ title|default('undefined') }}
           - !include
             - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:window-shutter
+              background_color: "[[[ if (states['sensor.current_covers_open'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['sensor.current_covers_open'].state > 0) return states['sensor.current_covers_open'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_cover_entities
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
             - icon: mdi:door
               background_color: "[[[ if (states['sensor.current_doors_open'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['sensor.current_doors_open'].state > 0) return states['sensor.current_doors_open'].state; else return '&nbsp;'; ]]]"
