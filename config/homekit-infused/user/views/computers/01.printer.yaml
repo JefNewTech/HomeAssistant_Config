@@ -1,0 +1,40 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: "Imprimante"
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:bar-card'
+            columns: 4
+            direction: up
+            entities:
+              - color: MediumTurquoise
+                entity: sensor.mfc_j6530dw_cyan_ink_remaining
+                name: Cyan
+              - color: MediumOrchid
+                entity: sensor.mfc_j6530dw_magenta_ink_remaining
+                name: Magenta
+              - color: Gold
+                entity: sensor.mfc_j6530dw_yellow_ink_remaining
+                name: Yellow
+              - color: Black
+                entity: sensor.mfc_j6530dw_black_ink_remaining
+                name: Black
+            height: 200px
+            max: 100
+            min: 0
+            padding: 2px
+            positions:
+              icon: 'off'
+              title: outside
+              value: outside
+            unit_of_measurement: '%'
+            width: 100%
