@@ -8,7 +8,7 @@
     type: vertical-stack
     cards:
       - !include
-        - '../../../base/templates/other/title-text.yaml'
+        - "../../../base/templates/other/title-text.yaml"
         - name: Battery Levels
       - type: custom:auto-entities
         filter:
@@ -19,7 +19,7 @@
             - domain: input_select
             - domain: automation
           include:
-            - entity_id: '*battery*'
+            - entity_id: sensor.ipad_de_jean_francois_battery_state
               options:
                 type: custom:button-card
                 template:
@@ -28,6 +28,70 @@
                   - battery-state
                 entity: this.entity_id
                 icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.iphone_de_jean_francois_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.macbook_pro_de_jean_francois_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.apple_watch_de_jean_francois_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.ipad_de_magalie_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.iphone_de_magalie_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.macbook_pro_de_magalie_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+            - entity_id: sensor.apple_watch_de_magalie_battery_state
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+ 
             - type: custom:button-card
               color_type: blank-card
               aspect_ratio: 1/1

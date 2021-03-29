@@ -1,0 +1,73 @@
+---
+# FR: Envoie une notificatin quand la pluie est attendue dans la prochaine heure
+# EN: Sent a notification if rain is expected in the hour
+#
+# FR: - Envoie une notification sur Telegram pour chaque changement d'heure estimée.
+#     - Envoie une notificatino sur la Google Home si la pluie est attendue dans moins de 5 minutes.
+#     - Une fois qu'il pleue, évite de répéter les notifications jusqu'à plus de pluie attendue
+#       dans la prochaine heure.
+#
+# EN: - Send a notification on Telegram each time rain estimatin time change.
+#     - Send a notification on Google Home if rain is expected in less than 5 minutes.
+#     - When it's raining, avoid to send notification unitil nom more rain is expected in the
+#       following hour.
+#
+# https://www.home-assistant.io/docs/automation/trigger/#template-trigger
+# https://www.home-assistant.io/docs/scripts/conditions/#template-condition
+#
+- alias: Alerte quand pluie attendue
+  description: Envoie des notifications quand la pluie est attendue dans l'heure
+  id: 30f4e5a8-df44-11ea-87d0-0242ac130003
+  trigger:
+    platform: state
+    entity_id: sensor.camphin_en_pevele_next_rain
+  action:
+    - choose:
+        - conditions:
+            # If rain is expected and notification are not stop by the input_boolean...
+            - "{{ trigger.to_state.state != 'unknown' }}"
+            - condition: state
+              entity_id: input_boolean.stop_rain_notification
+              state: 'off'
+          sequence:
+            - choose:
+                - conditions:
+                    # If estimated time change...
+                    # ... Send a notification on Telegram
+                    - "{{ trigger.to_state.state != trigger.from_state.state }}"
+                  sequence:
+                    - service: notify.telegram_jean
+                      data:
+                        message: >
+                          La pluie est attendue à {{ as_timestamp(states('sensor.camphin_en_pevele_next_rain'))
+                          | timestamp_custom('%H:%M', True) }}.
+            - choose:
+                - conditions:
+                    # If rain is expected in less than 5 mintues...
+                    # ... Stop future notification and send a notification on Google Home
+                    - "{{ state_attr('sensor.camphin_en_pevele_next_rain', '1_hour_forecast')['0 min'] != 'Temps sec' }}"
+                  sequence:
+                    - service: input_boolean.turn_on
+                      data:
+                        entity_id: input_boolean.stop_rain_notification
+                    # If current time is between 10h00 and 21h30...
+                    # ... Send a notification on Google Home
+                    - condition: time
+                      before: '19:30:00'
+                      after: '10:00:00'
+                    - service: tts.google_translate_say
+                      data:
+                        entity_id: media_player.salon
+                        message: "Chers résidents, la pluie est attendue dans quelques minutes."
+        - conditions:
+            # If rain is no more expected...
+            # ... Send a notification on Telegram and allow future notifications
+            - "{{ trigger.to_state.state == 'unknown' }}"
+            - "{{ trigger.from_state.state != 'unknown' }}"
+          sequence:
+            - service: notify.telegram_jean
+              data:
+                message: "Plus de pluie attendue dans la prochaine heure."
+            - service: input_boolean.turn_off
+              data:
+                entity_id: input_boolean.stop_rain_notification

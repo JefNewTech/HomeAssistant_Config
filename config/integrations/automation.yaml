@@ -1,0 +1,8 @@
+---
+# E: This handles the loading of my automations (YAML and UI)
+# F: Permet de charger mes automations (YAML et dans UI)
+#
+# https://www.home-assistant.io/docs/automation/
+#
+automation: !include ../automations.yaml
+automation split: !include_dir_merge_list ../automations

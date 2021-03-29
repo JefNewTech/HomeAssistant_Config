@@ -1,0 +1,15 @@
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_token
+    allowed_chat_ids:
+      - !secret id_telegram_Jf ## jf
+      # - !secret id_telegram_anthoclaire ##groupe
+      
+notify:
+  # - name: Telegram Groupe
+  #   platform: telegram
+  #   chat_id: !secret id_telegram_anthoclaire ## Groupe
+
+  - name: Telegram Jean
+    platform: telegram
+    chat_id: !secret id_telegram_Jf ## McFly

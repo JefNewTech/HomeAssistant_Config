@@ -1,0 +1,78 @@
+---
+# FR: Vérfie que les lumières sont éteintes après le levé du soleil
+# EN: Check if lights are still on when sun up
+#
+# FR: Si allumées, envoie une notification sur Telegram pour demander quoi
+#     faire: rien, éteindre, ou redemander dans 15 minutes.
+# EN: If yes send a notification on telegram asking what to do: nothing, switch
+#     off or check again in 15 minutes
+#
+# https://www.home-assistant.io/components/sun/
+#
+
+# Main automation checking the state of the light
+- alias: "Eteindre éclairage au levé du soleil"
+  description: Envoie une notification pour avertir que les lumières sont toujours allumées.
+  mode: restart
+  id: e7de9690-30f4-11eb-8655-7fbd7c468bda
+  trigger:
+    - event: sunrise
+      offset: "0:15:00"
+      platform: sun
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.redemande_leve_du_soleil
+  condition:
+    - condition: state
+      entity_id: switch.shelly1_8caab5061c39
+      state: "on"
+  action:
+    - service: notify.telegram_jean
+      data:
+        data:
+          inline_keyboard:
+            - Oui:/eteintLumiere, Non:/do_nothing, Redemande:/redemande
+        message:
+          Le soleil est levé et il reste des lumières allumées dans le salon.
+          Voulez vous les éteindre ?
+    - wait_for_trigger:
+        - platform: event
+          event_type: telegram_callback
+    - choose:
+        - conditions:
+            - "{{ wait.trigger.event.data.data == '/redemande' }}"
+          sequence:
+            - service: timer.start
+              entity_id: timer.redemande_leve_du_soleil
+            - service: telegram_bot.edit_message
+              data:
+                message_id: "{{ wait.trigger.event.data.message.message_id }}"
+                chat_id: "{{ wait.trigger.event.data.user_id }}"
+                message: "OK je te redemande dans 15 minutes"
+        - conditions:
+            - "{{ wait.trigger.event.data.data == '/do_nothing' }}"
+          sequence:
+            - service: telegram_bot.answer_callback_query
+              data:
+                callback_query_id: "{{ wait.trigger.event.data.id }}"
+                message: Tu as dis non!
+            - service: telegram_bot.edit_message
+              data:
+                message_id: "{{ wait.trigger.event.data.message.message_id }}"
+                chat_id: "{{ wait.trigger.event.data.user_id }}"
+                message: "OK je laisse les lumières allumées"
+        - conditions:
+            - "{{ wait.trigger.event.data.data == '/eteintLumiere' }}"
+          sequence:
+            - service: telegram_bot.answer_callback_query
+              data:
+                callback_query_id: "{{ wait.trigger.event.data.id }}"
+                message: J'éteins les lumières
+            - service: light.turn_off
+              entity_id: switch.shelly1_8caab5061c39
+            - service: telegram_bot.edit_message
+              data:
+                message_id: "{{ wait.trigger.event.data.message.message_id }}"
+                chat_id: "{{ wait.trigger.event.data.user_id }}"
+                message: "Les lumières du salon sont éteintes"
