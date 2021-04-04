@@ -76,7 +76,7 @@
       entity_id: sensor.birthday_jos_schings
       to: '0'
     - platform: state
-      entity_id: sensor.sensor.anniversary_notre_mariage
+      entity_id: sensor.anniversary_notre_mariage
       to: '0'
     - platform: state
       entity_id: sensor.anniversary_notre_mariage

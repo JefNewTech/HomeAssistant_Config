@@ -9,22 +9,22 @@
   id: 8387f376-a3ca-4ec1-8838-ebb7bd5a3f8b
   trigger:
     - platform: state
-      entity_id: sensor.version_available
+      entity_id: sensor.latest_version
     - platform: homeassistant
       event: start
   condition:
-    - "{{ states('sensor.version_available') != states('sensor.version_current') }}"
+    - "{{ states('sensor.latest_version') != states('sensor.version_current') }}"
     - "{{ states('sensor.version_current') != 'unknown' }}"
 
   action:
     - service: notify.telegram_jean
       data:
         message: >
-          Une mise à jour de Home Assistant est disponible:  {{ states('sensor.version_available') }}
+          Une mise à jour de Home Assistant est disponible:  {{ states('sensor.latest_version') }}
     - service: persistent_notification.create
       data:
         title: Mise à jour disponible !
         message: >-
           Une mise à jour de Home Assistant est disponible !
-          La version {{ states('sensor.version_available') }} vient d'être déployée !
+          La version {{ states('sensor.latest_version') }} vient d'être déployée !
         notification_id: hassio_upgrade
