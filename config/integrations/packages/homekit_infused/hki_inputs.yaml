@@ -297,6 +297,24 @@ input_select:
       - Default
       - Advanced
 
+  navigation_bar_direction:
+    options:
+      - Left
+      - Right
+
+  navigation_bar_options:
+    options:
+      - Date
+      - Time
+      - User
+      - Hide
+
+  navigation_bar:
+    options:
+      - 'Off'
+      - Top
+      - Bottom
+
 # Input Texts
 input_text:
   good_morning:

@@ -67,6 +67,7 @@ Home Assistant:
   card-mod-theme: Home Assistant
   card-mod-root-yaml: |
     .: |
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
       ha-menu-button {
         display: none !important;
       }
@@ -85,32 +86,171 @@ Home Assistant:
         font-size: 18px;
         height: 20px; 
         width: 150px;
-        margin-left: 0px;
-        margin-right: 12px;
-        content: "{{ user }}";
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
         position: absolute;
         top: 14px;
-        right: 0px;
-        color: var(--header-text-color);
+        right: 12px;
         transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
       }
       app-header {
         top: auto !important;
-        border-top: 3px solid var(--primary-color);
-        bottom: -2px !important;
+        bottom: 0 !important;
         transform: unset !important;
         box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
       }
       app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
       }
       #view {
-        margin-top: -59px !important;
+        margin-top: -57px !important;
       }
       ha-icon {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         color: var(--header-text-color) !important;
+        {% else %}
+        transform: none
+        color: var(--header-text-color) !important;
+        {% endif %}
+        color: var(--header-text-color) !important;
       }
+
+      {% elif is_state('input_select.navigation_bar', 'Top') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        box-shadow: none !important;
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      ha-icon {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+        {% else %}
+        transform: none
+        color: var(--header-text-color) !important;
+        {% endif %}
+        color: var(--header-text-color) !important;
+      }
+      {% endif %}
 
   # Primary Color
   primary-color: '#03a9f4'
